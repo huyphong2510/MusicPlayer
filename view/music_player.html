@@ -1,0 +1,91 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MP3</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+  integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+  crossorigin="anonymous" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/music.css">
+
+<div class="player" style="">
+  
+  <!-- Dashboard -->
+  <div class="dashboard" style="text-align:center">
+    <div>
+      <label class="switch">  
+        <div style="position: relative; right: 55px; top: -5px">
+          Mode:
+        </div>    
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <!-- Header -->
+    <header>
+      
+      <h4></h4>
+      <h2></h2>
+    </header>
+
+    <body>
+      <!-- CD -->
+      <div class="cd">
+        <div class="cd-thumb">
+        </div>
+      </div>
+
+      <!-- Control -->
+      <div class="control">
+        <div class="btn btn-random">
+          <i class="fas fa-random" title="Random Song"></i>
+        </div>
+        <div class="btn btn-prev">
+          <i class="fas fa-step-backward" title="Previous Song"></i>
+        </div>
+        <div class="btn btn-toggle-play" title="Play song">
+          <i class="fas fa-pause icon-pause"></i>
+          <i class="fas fa-play icon-play"></i>
+        </div>
+        <div class="btn btn-next">
+          <i class="fas fa-step-forward" title="Next Song"></i>
+        </div>
+        <div class="btn btn-repeat">
+          <i class="fas fa-redo" title="Repeat Song"></i>
+        </div>
+        <br>
+      </div>
+      <div class="btn btn-like" style="position: absolute;
+            left: 2.5rem;">
+        <i class="fa fa-heart"></i>
+        <small></small>
+      </div>
+      <br>
+      <br>
+      <input id="progress" class="form-range" type="range" value="0" step="0.01" min="0" max="100" />
+      <p class="time-progress "></p>
+      <audio id="audio" src=""></audio>
+  </div>
+
+  <!-- Playlist -->
+  <div class="playlist" style="margin-bottom: 50px; text-align:center;">
+    <button class="btn-del" hidden="hidden"></button>
+  </div>
+
+  <footer>
+    <h5></h5>
+    <input id="playtime" class="form-range" type="range" value="0" step="1" min="0" max="100" style="width: 100%;" />
+    <audio id="audio" src=""></audio>
+    <button class="btn-ft"><i class="fa fa-home"></i></button>
+    <button class="btn-ft">
+      <i class="fas fa-music fa-inverse"></i>
+    </button>
+    <button class="btn-ft"><i class="fas fa-search"></i></button>
+    <button class="btn-ft"><i class="fas fa-bars"></i></button>
+  </footer>
+</div>
+
+</body>
+
+
+
+<script src="/controller/music_player.js"></script>
