@@ -108,7 +108,7 @@ const app = {
     render: function () {
         const htmls = this.songs.map((song) => {
             return `
-        <a style="text-decoration: none" href="http://127.0.0.1:5500/view/music_player.html">
+        <a style="text-decoration: none" href="http://127.0.0.1:5500/MusicPlayer/view/music_player.html">
         <div class="song">
       <div class="thumb" style="background-image: url('${song.image}')">
       </div>

@@ -1,28 +1,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MP3</title>
+<title>Music Player</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
   integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
   crossorigin="anonymous" />
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/music.css">
-
+<button class="logout" onclick="logoutHandler()">Log out</button>
 <div class="player" style="">
-  
+
   <!-- Dashboard -->
   <div class="dashboard" style="text-align:center">
+    <!-- advertisement -->
     <div>
-      <label class="switch">  
+      <iframe width="100%" height="250px" id="ads" hidden src="">
+      </iframe>
+      <button onclick="closeAds()" style="position: absolute; right: 5.5%; bottom: 6rem" hidden id="closeAds">Skip
+        ads</button>
+    </div>
+
+    <div>
+      <label class="switch">
         <div style="position: relative; right: 55px; top: -5px">
           Mode:
-        </div>    
+        </div>
         <input type="checkbox">
         <span class="slider round"></span>
       </label>
     </div>
     <!-- Header -->
     <header>
-      
+
       <h4></h4>
       <h2></h2>
     </header>
@@ -35,7 +43,7 @@
       </div>
 
       <!-- Control -->
-      <div class="control">
+      <div class="control" >
         <div class="btn btn-random">
           <i class="fas fa-random" title="Random Song"></i>
         </div>
@@ -43,7 +51,7 @@
           <i class="fas fa-step-backward" title="Previous Song"></i>
         </div>
         <div class="btn btn-toggle-play" title="Play song">
-          <i class="fas fa-pause icon-pause"></i>
+          <i class="fas fa-pause icon-pause" ></i>
           <i class="fas fa-play icon-play"></i>
         </div>
         <div class="btn btn-next">
@@ -65,6 +73,7 @@
       <p class="time-progress "></p>
       <audio id="audio" src=""></audio>
   </div>
+
 
   <!-- Playlist -->
   <div class="playlist" style="margin-bottom: 50px; text-align:center;">
@@ -88,4 +97,4 @@
 
 
 
-<script src="/controller/music_player.js"></script>
+<script src="../controller/music_player.js"></script>

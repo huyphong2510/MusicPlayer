@@ -20,6 +20,8 @@ const btn = $(".btn-del");
 const btnMode = $(".switch");
 const dashboard = $(".dashboard");
 const body = $("BODY")
+const control = $(".control")
+const h2 = $("h2")
 var storageKey = 'app.currentIndex'
 
 const app = {
@@ -318,7 +320,6 @@ const app = {
   },
 
   loadCurrentSong: function (index) { 
-    console.log('storage key',index)
     if (index == null) {
       index = 0
     }
@@ -428,3 +429,46 @@ function confirmDownload(){
     return false
   }
 }
+
+function logoutHandler(){
+  localStorage.clear()
+  window.location.href = 'http://127.0.0.1:5500/MusicPlayer/view/login.html'
+}
+
+function advertisementHandler(){
+  setInterval(()=>{
+    const video = document.getElementById('ads')
+    document.getElementById('ads').hidden = false
+    document.getElementById('closeAds').hidden = true
+    h2.hidden = true
+    thumb.hidden = true
+    likeBtn.hidden = true
+    control.classList.add("hidden")
+    progress.hidden = true
+    video.src = '../assets/video/ads.mp4'
+    audio.pause()
+    setInterval(()=>{
+      document.getElementById('closeAds').hidden = false
+    },5000)
+  }, 10000)
+  
+}
+advertisementHandler()
+
+function closeAds() {
+  document.getElementById('ads').hidden = true
+  document.getElementById('closeAds').hidden = true
+  repeatBtn.hidden = false
+  prevBtn.hidden = false
+  playButton.hidden = false
+  nextBtn.hidden = false
+  randomBtn.hidden = false
+  h2.hidden = false
+  thumb.hidden = false
+  likeBtn.hidden = false
+  progress.hidden = false
+  control.classList.remove("hidden");
+  audio.play()
+}
+
+console.log('control:', control);

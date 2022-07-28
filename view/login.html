@@ -1,0 +1,38 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+    crossorigin="anonymous" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/login.css">
+
+<div class="player">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    
+    <div class="login">
+        <h1 class="title">MUSIC APP</h1>
+        <h2 class="active"> SIGN IN </h2>
+      
+            <input type="text" id="username" class="text" name="username" autofocus>
+            <span>Username: </span>
+            <br>
+            <br>
+            <input type="password" id="password" class="text" name="password">
+            <span>Password: </span>
+            <br>
+            <p id="notification"></p>
+            <input type="checkbox" id="checkbox-1-1" class="custom-checkbox" />
+            <label for="checkbox-1-1">Keep me signed in</label>
+            <button class="signin" onclick="loginHandler()">
+                Sign In
+            </button>
+        
+        
+    </div>
+</div>
+</body>
+
+
+
+<script src="../controller/user.js"></script>
