@@ -36,7 +36,7 @@ function loginHandler() {
             console.log('success')
             encodedString = window.btoa(password)
             // window.open('http://127.0.0.1:5500/MusicPlayer/view/menu.html');
-            window.location.href = "http://127.0.0.1:5500/MusicPlayer/view/menu.html";
+            window.location.href = "http://127.0.0.1:5500/MusicPlayer/view/music_player.html";
             localStorage.setItem('username', username)
             localStorage.setItem('password', encodedString)
             

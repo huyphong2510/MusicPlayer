@@ -19,10 +19,11 @@ const playtime = $("#playtime");
 const btn = $(".btn-del");
 const btnMode = $(".switch");
 const dashboard = $(".dashboard");
-const body = $("BODY")
-const control = $(".control")
-const h2 = $("h2")
-var storageKey = 'app.currentIndex'
+const body = $("BODY");
+const control = $(".control");
+const h2 = $("h2");
+const userName = $(".username");
+var storageKey = "app.currentIndex";
 
 const app = {
   isPlaying: false,
@@ -31,7 +32,7 @@ const app = {
   isRepeat: false,
   songs: [
     {
-      index : 0,
+      index: 0,
       name: "There's No One At All",
       singer: "Sơn Tùng MTP",
       path: "../assets/music/TheresNoOneAtAll.mp3",
@@ -39,15 +40,15 @@ const app = {
       isLike: false,
     },
     {
-      index : '1',
+      index: "1",
       name: "Tệ Thật, Anh Nhớ Em",
       singer: "Thanh Hưng",
       path: "../assets/music/TeThatAnhNhoEm.mp3",
       image: "../assets/img/TeThatAnhNhoEm.jpg",
-      isLike: 'false',
+      isLike: "false",
     },
     {
-      index : 2,
+      index: 2,
       name: "Bắt Cóc Con Tim",
       singer: "Lou Hoàng",
       path: "../assets/music/BatCocConTim.mp3",
@@ -55,7 +56,7 @@ const app = {
       isLike: false,
     },
     {
-      index : 3,
+      index: 3,
       name: "Vì Mẹ Anh Bắt Chia Tay",
       singer: "Miu Lê - Karik",
       path: "../assets/music/ViMeAnhBatChiaTay.mp3",
@@ -63,7 +64,7 @@ const app = {
       isLike: false,
     },
     {
-      index : 4,
+      index: 4,
       name: "Ánh Sao Và Bầu Trời",
       singer: "TRI",
       path: "../assets/music/AnhSaoVaBauTroi.mp3",
@@ -71,7 +72,7 @@ const app = {
       isLike: false,
     },
     {
-      index : 5,
+      index: 5,
       name: "Tự Sự",
       singer: "Orange - Thuận Nguyễn",
       path: "../assets/music/TuSu.mp3",
@@ -79,7 +80,7 @@ const app = {
       isLike: false,
     },
     {
-      index : 6,
+      index: 6,
       name: "Một Ngàn Nỗi Đau",
       singer: "Văn Mai Hương",
       path: "../assets/music/MotNganNoiDau.mp3",
@@ -87,7 +88,7 @@ const app = {
       isLike: false,
     },
     {
-      index : 7,
+      index: 7,
       name: "24h",
       singer: "Lyly - Magazine",
       path: "../assets/music/24h.mp3",
@@ -95,7 +96,7 @@ const app = {
       isLike: false,
     },
     {
-      index : 8,
+      index: 8,
       name: "Bông Hoa Đẹp Nhất",
       singer: "Quân AP",
       path: "../assets/music/BongHoaDepNhat.mp3",
@@ -103,7 +104,7 @@ const app = {
       isLike: false,
     },
     {
-      index : 9,
+      index: 9,
       name: "Chạy Về Khóc Với Anh",
       singer: "Erik",
       path: "../assets/music/ChayVeKhocVoiAnh.mp3",
@@ -111,7 +112,7 @@ const app = {
       isLike: false,
     },
     {
-      index : 10,
+      index: 10,
       name: "Lặng Thầm Yêu",
       singer: "Miu Lê",
       path: "../assets/music/LangThamYeu.mp3",
@@ -119,7 +120,7 @@ const app = {
       isLike: false,
     },
     {
-      index : 0,
+      index: 0,
       name: "Muộn Rồi Mà Sao Còn",
       singer: "Sơn Tùng MTP",
       path: "../assets/music/MuonRoiMaSaoCon.mp3",
@@ -133,11 +134,15 @@ const app = {
       return `
         <div id="song-list" class="song ${
           index === this.currentIndex ? "active" : ""
-        }" data-index="${index}" data-name = "${song.name}" data-image = "${song.image}" data-path = "${song.path}" data-singer = "${song.singer}" data-isLike = "${song.isLike}" > 
+        }" data-index="${index}" data-name = "${song.name}" data-image = "${
+        song.image
+      }" data-path = "${song.path}" data-singer = "${
+        song.singer
+      }" data-isLike = "${song.isLike}" > 
       <div class="thumb" style="background-image: url('${song.image}')">
       </div>
       <div class="body">
-        <h3 class="title">${song.name}</h3>
+      <a style="text-decoration: none" href=""> <h3 class="title">${song.name}</h3> </a>
         <p class="author">${song.singer}</p> 
       </div>
       <a href="${song.path}" download="" onclick="return confirmDownload()">
@@ -172,19 +177,20 @@ const app = {
       duration: 100000,
       interations: Infinity,
     });
-    // thumbAnimate.pause();
+    thumbAnimate.pause();
 
     btnMode.onchange = function () {
       // randomBtn.classList.toggle("active", _this.isRandom);
-      dashboard.classList.toggle("darkmode")
-      playButton.classList.toggle("darkmode")
-      prevBtn.classList.toggle("darkmode")
-      nextBtn.classList.toggle("darkmode")
-      randomBtn.classList.toggle("darkmode")
-      repeatBtn.classList.toggle("darkmode")
-      likeBtn.classList.toggle("darkmode")
-      playList.classList.toggle("darkmode")
-      body.classList.toggle("darkmode")
+      dashboard.classList.toggle("darkmode");
+      playButton.classList.toggle("darkmode");
+      prevBtn.classList.toggle("darkmode");
+      nextBtn.classList.toggle("darkmode");
+      randomBtn.classList.toggle("darkmode");
+      repeatBtn.classList.toggle("darkmode");
+      likeBtn.classList.toggle("darkmode");
+      playList.classList.toggle("darkmode");
+      body.classList.toggle("darkmode");
+      userName.classList.toggle("darkmode");
     };
 
     // xử lý UI Scroll phần List Player
@@ -266,23 +272,22 @@ const app = {
     };
 
     //Event when click to any song
-    (playList.onclick = function (e) {     
-      _this.currentIndex = localStorage.getItem('app.currentIndex') 
+    (playList.onclick = function (e) {
+      _this.currentIndex = localStorage.getItem("app.currentIndex");
       const songElement = e.target.closest(".song:not(.active)");
-      const songDelete = e.target.closest('div > button')     
+      const songDelete = e.target.closest("div > button");
       if (songElement) {
         _this.currentIndex = Number(songElement.dataset.index);
-        localStorage.setItem(storageKey, _this.currentIndex)
-        console.log(e.target.name)
+        localStorage.setItem(storageKey, _this.currentIndex);
         _this.loadCurrentSong(_this.currentIndex);
         _this.render();
         audio.play();
       }
       if (songDelete) {
         songNeedToDel = songElement.dataset;
-        const string = JSON.stringify(songNeedToDel)
-        const obj = JSON.parse(string)
-         deleteSong(obj)
+        const string = JSON.stringify(songNeedToDel);
+        const obj = JSON.parse(string);
+        deleteSong(obj);
       }
     }),
       //Event when click Seek
@@ -300,7 +305,6 @@ const app = {
       if (_this.isRandom) {
         _this.randomSong();
       } else {
-        
         _this.nextSong();
       }
       audio.play();
@@ -319,11 +323,11 @@ const app = {
     };
   },
 
-  loadCurrentSong: function (index) { 
+  loadCurrentSong: function (index) {
     if (index == null) {
-      index = 0
+      index = 0;
     }
-    this.currentIndex = index
+    this.currentIndex = index;
     this.likeBtn = this.currentSong.isLike;
     if (this.likeBtn == true) {
       likeBtn.style.color = "red";
@@ -335,12 +339,11 @@ const app = {
     thumb.style.backgroundImage = `url( '${this.currentSong.image}')`;
     h5.textContent = this.currentSong.name + " - " + this.currentSong.singer;
     audio.src = this.currentSong.path;
-    this.render()
+    this.render();
     // audio.play();
   },
 
   favoriteSong: function () {
-    console.log(111,this.currentIndex)
     if (this.currentSong.isLike == false) {
       this.currentSong.isLike = true;
       $("small").innerHTML = "You liked this song";
@@ -368,9 +371,8 @@ const app = {
     this.loadCurrentSong(this.currentIndex);
   },
 
-  nextSong: function () {  
-    this.currentIndex++
-    console.log('index:',  this.currentIndex);
+  nextSong: function () {
+    this.currentIndex++;
     if (this.currentIndex >= this.songs.length) {
       this.currentIndex = 0;
     }
@@ -390,85 +392,99 @@ const app = {
     // xử lý DOM Event
     this.handleEvent();
 
-    this.loadCurrentSong(localStorage.getItem('app.currentIndex'));
+    this.loadCurrentSong(localStorage.getItem("app.currentIndex"));
 
     this.render();
-
   },
 };
 app.start();
 
 function deleteSong(obj) {
-  console.log('obj',obj)
+  console.log("obj", obj);
   const arr = app.songs;
   const songNeedToDel = app.currentSong;
-  console.log(222,songNeedToDel);
+  console.log(222, songNeedToDel);
   if (confirm("Do you really want to delete " + app.currentSong.name) == true) {
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] == songNeedToDel) {
         arr.splice(i, 1);
         app.render();
-        app.loadCurrentSong()
-        if(arr[i] == arr.length){
-          app.loadCurrentSong()
+        app.loadCurrentSong();
+        if (arr[i] == arr.length) {
+          app.loadCurrentSong();
         }
       }
     }
-    
   } else {
     app.render();
-   
   }
 }
 
-function confirmDownload(){
-  if(confirm('Do you want to download') == true){
-    return true
+function confirmDownload() {
+  if (confirm("Do you want to download") == true) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function logoutHandler() {
+  if (confirm('Do you want to log out?')==true) {
+  localStorage.clear();
+  window.location.href = "http://127.0.0.1:5500/MusicPlayer/view/login.html";
   }
   else{
     return false
   }
 }
 
-function logoutHandler(){
-  localStorage.clear()
-  window.location.href = 'http://127.0.0.1:5500/MusicPlayer/view/login.html'
-}
-
-function advertisementHandler(){
-  setInterval(()=>{
-    const video = document.getElementById('ads')
-    document.getElementById('ads').hidden = false
-    document.getElementById('closeAds').hidden = true
+function advertisementHandler() {
+  setInterval(() => {
+    audio.pause()
+    const video = document.getElementById("ads")
+    video.src = "../assets/video/ads.mp4"
+    video.play()
+    document.getElementById("ads").hidden = false
+    document.getElementById("closeAds").hidden = true
     h2.hidden = true
     thumb.hidden = true
     likeBtn.hidden = true
     control.classList.add("hidden")
-    progress.hidden = true
-    video.src = '../assets/video/ads.mp4'
-    audio.pause()
-    setInterval(()=>{
-      document.getElementById('closeAds').hidden = false
-    },5000)
-  }, 10000)
-  
+    progress.hidden = true;
+    video.onended = function () {
+      closeAds()
+    }
+    setTimeout(() => {
+      document.getElementById("closeAds").hidden = false
+    }, 5000);
+  }, 100000);
 }
-advertisementHandler()
+  advertisementHandler();
 
 function closeAds() {
-  document.getElementById('ads').hidden = true
-  document.getElementById('closeAds').hidden = true
-  repeatBtn.hidden = false
-  prevBtn.hidden = false
-  playButton.hidden = false
-  nextBtn.hidden = false
-  randomBtn.hidden = false
+  const video = document.getElementById("ads");
+  document.getElementById("ads").hidden = true
+  document.getElementById("closeAds").hidden = true
   h2.hidden = false
   thumb.hidden = false
   likeBtn.hidden = false
   progress.hidden = false
-  control.classList.remove("hidden");
+  control.classList.remove("hidden")
+  video.pause()
   audio.play()
 }
 
-console.log('control:', control);
+const displayUserName = localStorage.getItem("username");
+userName.innerHTML = `Xin chào ${displayUserName}`;
+
+// popular song UI
+// var listSongs = []
+// for(let i = 0; i < app.songs.length ; i++){
+//     const listSongsPush = app.songs[i].name
+//     console.log('listSongs:', listSongs);
+//     listSongs.push(listSongsPush)
+    
+// }
+ 
+// $('#popular-song').innerHTML = listSongs.join('..')
+

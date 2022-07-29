@@ -1,5 +1,5 @@
 :root {
-  --primary-color: rgb(37, 20, 44);
+  --primary-color: rgb(31, 3, 43);
   ;
   --text-color: rgb(14, 13, 13);
 }
@@ -24,6 +24,10 @@ body.darkmode {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+}
+
+.username.darkmode{
+  color: white;
 }
 
 html {
@@ -54,11 +58,11 @@ html {
   padding: 16px 16px 20px;
   background-color: rgb(247, 248, 248);
   position: fixed;
-  top: 0;
+  top: 6.7%;
   width: 100%;
   max-width: 480px;
-  border-bottom: 1px solid #ebebeb;
-  border-radius: 6px;
+  border-bottom: 1px solid rgb(235 235 235);
+  border-radius: 6px
 }
 
 /* HEADER */
@@ -102,7 +106,7 @@ header h2 {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 20px 0px 8px 22px;
+  padding: 22px 2px 8px 11.5%
 }
 
 .control.hidden{
@@ -153,19 +157,21 @@ header h2 {
 
 /* PLAYLIST */
 .playlist {
-  margin-top: 408px;
+  position: inherit;
+  margin-top: 489px;
   padding: 12px;
-  background-image: url("../../assets/img/background-lightmode.jpg");
-
+  background-image: url(../../assets/img/background-lightmode.jpg);
+  padding-top: 1%;
+  height: auto;
 }
 
 .playlist.darkmode {
-  margin-top: 408px;
+   margin-top: 408px;
   padding: 12px;
   background-color: rgb(37, 20, 44);
   background-image: url("../../assets/img/background-darkmode.jpg");
+  padding-top: 5%;
 }
-
 
 
 .song {
@@ -411,14 +417,20 @@ input:checked+.slider:before {
 
 .dashboard.darkmode {
   background-color: rgb(37, 20, 44);
-  padding: 16px 16px 20px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  max-width: 480px;
-  border-bottom: 0px solid #ebebeb;
+ 
   border-radius: 6px;
   --text-color: white;
+
+
+
+  padding: 16px 16px 20px;
+ 
+  position: fixed;
+  top: 6.7%;
+  width: 100%;
+  max-width: 480px;
+  border-bottom: 1px solid rgb(235 235 235);
+  border-radius: 6px
 }
 
 .btn-next.darkmode {
@@ -491,4 +503,82 @@ input:checked+.slider:before {
     font-size: 1.125rem;
     padding: 1rem 2rem;
   }
+}
+
+.sidenav {
+  height: 93.5%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(44, 7, 85);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav-right {
+  height: 93.5%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: rgb(44, 7, 85);
+  overflow-x: hidden;
+  transition: 1s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 1px 30px 16px 90px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+  transition: 0.6s;
+  margin-top: -17px;
+  margin-left: -15%;
+}
+
+.sidenav h2{
+  margin-left: 5%;
+  transition: 1s;
+}
+
+.sidenav a:hover {
+  color: red;
+}
+
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.popular{
+  color: white;
+  margin-left: 7%;
+  padding-top: 5%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#popular-song{
+  font-size: 18px;
+  margin-left: 11%;
+  padding-top: 3%;
+}
+
+.banner{
+  color: white;
+  height: 6%;
+  position: fixed ;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background: rgb(31, 3, 43);
 }
