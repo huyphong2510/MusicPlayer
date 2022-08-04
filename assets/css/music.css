@@ -11,23 +11,28 @@
 
 }
 
-  body {
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-  }
-
-
-
-body.darkmode {
-  background-color: rgb(20, 12, 24);
+body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
 }
 
-.username.darkmode{
-  color: white;
+
+
+body.darkmode {
+
+  background-color: rgb(17, 4, 32);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+#username {
+  color: rgb(255 255 255);
+  position: absolute;
+  right: 2px;
+  top: 1.7rem;
+  right: 10rem;
 }
 
 html {
@@ -54,16 +59,7 @@ html {
 }
 
 
-.dashboard {
-  padding: 16px 16px 20px;
-  background-color: rgb(247, 248, 248);
-  position: fixed;
-  top: 6.7%;
-  width: 100%;
-  max-width: 480px;
-  border-bottom: 1px solid rgb(235 235 235);
-  border-radius: 6px
-}
+
 
 /* HEADER */
 header {
@@ -106,14 +102,33 @@ header h2 {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 22px 2px 8px 11.5%
+  padding: 22px 2px 14px 7.5%
 }
 
-.control.hidden{
+.control-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2px 0px 0px 21.5%;
+  margin-right: 200px;
+}
+
+
+.control.hidden {
   display: none;
 }
 
+/* .control-footer.hidden {
+  display: none;
+} */
+
 .control .btn {
+  color: rgb(73, 10, 124);
+  padding: 18px;
+  font-size: 18px;
+}
+
+.control-footer .btn {
   color: rgb(73, 10, 124);
   padding: 18px;
   font-size: 18px;
@@ -123,9 +138,24 @@ header h2 {
   color: rgb(250, 53, 201)
 }
 
+.control-footer .btn.active {
+  color: rgb(250, 53, 201)
+}
+
 .control .btn-toggle-play {
   width: 56px;
   height: 56px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+}
+.control-footer .btn-toggle-play-ft {
+  width: 53px;
+  height: 53px;
   border-radius: 50%;
   font-size: 24px;
   color: #fff;
@@ -144,6 +174,7 @@ header h2 {
   opacity: 0.7;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
+
 }
 
 .form-range:-webkit-slider-thumb {
@@ -166,11 +197,12 @@ header h2 {
 }
 
 .playlist.darkmode {
-   margin-top: 408px;
+  position: inherit;
+  margin-top: 489px;
   padding: 12px;
-  background-color: rgb(37, 20, 44);
   background-image: url("../../assets/img/background-darkmode.jpg");
-  padding-top: 5%;
+  padding-top: 1%;
+  height: auto;
 }
 
 
@@ -250,7 +282,7 @@ header h2 {
 
 footer {
   border-radius: 5px;
-  height: 4.5rem;
+  height: 6.6rem;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -282,7 +314,7 @@ footer {
 }
 
 p {
-  font-size: 9.5px;
+  font-size: 80%;
 }
 
 .switch {
@@ -300,8 +332,10 @@ p {
   opacity: 0;
   width: 0;
   height: 0;
-  
+
 }
+
+
 
 /* The slider */
 .slider {
@@ -416,15 +450,20 @@ input:checked+.slider:before {
 }
 
 .dashboard.darkmode {
-  background-color: rgb(37, 20, 44);
- 
-  border-radius: 6px;
   --text-color: white;
-
-
-
   padding: 16px 16px 20px;
- 
+  background-color: rgb(37, 20, 44);
+  position: fixed;
+  top: 6.7%;
+  width: 100%;
+  max-width: 480px;
+  border-bottom: 1px solid rgb(235 235 235);
+  border-radius: 6px
+}
+
+.dashboard {
+  padding: 16px 16px 20px;
+  background-color: rgb(247, 248, 248);
   position: fixed;
   top: 6.7%;
   width: 100%;
@@ -443,7 +482,7 @@ input:checked+.slider:before {
 
 .btn-random.darkmode {
   color: white;
-  
+
 }
 
 .btn-repeat.darkmode {
@@ -452,7 +491,7 @@ input:checked+.slider:before {
 
 .btn-like.darkmode {
   color: white;
- 
+
 }
 
 .control .btn-toggle-play.darkmode {
@@ -467,7 +506,7 @@ input:checked+.slider:before {
   background-color: white
 }
 
-.logout{
+.logout {
   position: absolute;
   right: 1rem;
   top: 0.5rem;
@@ -478,7 +517,7 @@ input:checked+.slider:before {
   color: #0d172a;
   cursor: pointer;
   display: inline-block;
-  font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1.1rem;
   font-weight: 600;
   line-height: 1;
@@ -506,16 +545,18 @@ input:checked+.slider:before {
 }
 
 .sidenav {
-  height: 93.5%;
+  height: 96.5%;
   width: 0;
   position: fixed;
   z-index: 1;
-  top: 0;
+  top: -25px;
   left: 0;
-  background-color: rgb(44, 7, 85);
+  background-color: rgb(17, 4, 32);
+  background-image: linear-gradient(rgb(65, 35, 104), rgb(38, 89, 112));
   overflow-x: hidden;
-  transition: 0.5s;
+  /* transition: 0.5s; */
   padding-top: 60px;
+  transition: width 0.2s;
 }
 
 .sidenav-right {
@@ -532,53 +573,130 @@ input:checked+.slider:before {
 }
 
 .sidenav a {
-  padding: 1px 30px 16px 90px;
+  padding: 15px 3px 13px 90px;
   text-decoration: none;
   font-size: 20px;
   color: white;
   display: block;
-  transition: 0.6s;
   margin-top: -17px;
   margin-left: -15%;
+  height: auto;
+
 }
 
-.sidenav h2{
+.sidenav h2 {
   margin-left: 5%;
-  transition: 1s;
+  /* transition: 1s; */
 }
 
 .sidenav a:hover {
-  color: red;
+  background-color: rgb(132, 113, 155);
 }
 
 
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 
-.popular{
+.popular {
   color: white;
   margin-left: 7%;
   padding-top: 5%;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-#popular-song{
+#popular-song {
   font-size: 18px;
   margin-left: 11%;
   padding-top: 3%;
 }
 
-.banner{
+.banner {
   color: white;
   height: 6%;
-  position: fixed ;
+  position: fixed;
   position: fixed;
   top: 0;
   width: 100%;
   padding: 20px;
-  box-sizing: border-box;
+  /* box- sizing: border-box; */
   background: rgb(31, 3, 43);
+}
+
+
+
+
+.icon-size {
+  font-size: 1rem;
+  position: absolute;
+  right: 8.8rem;
+  bottom: 3.8rem;
+}
+
+.bar-hoverbox {
+  padding: 9px 15px;
+  opacity: 1;
+  transition: opacity .2s;
+  position: absolute;
+  right: 0px;
+  bottom: 3.5rem;
+
+}
+
+.bar {
+  background: rgb(229, 225, 238);
+  height: 10px;
+  width: 120px;
+  border-radius: 15px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bar-fill {
+  background: rgb(193, 88, 238);
+  width: 0%;
+  height: 100%;
+  background-clip: border-box;
+  pointer-events: none;
+}
+
+
+
+.bar-hoverbox {
+  padding: 9px 15px;
+  opacity: 1;
+  transition: opacity .2s;
+  position: absolute;
+  right: 0px;
+  bottom: 3.5rem;
+}
+
+.volume {
+  height: 10px;
+  width: 5%;
+  position: absolute;
+  background-color: rgb(221 221 221);
+  right: 21px;
+  top: 0.25rem;
+}
+
+.fa-volume-up{
+  margin-left: 85%;
+ position: relative;
+ top: -53.6px;
+ }
+
+.volume-slider {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-color: rgb(217, 44, 240);
+ margin-left: 0px;
 }

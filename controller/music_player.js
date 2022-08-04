@@ -2,15 +2,20 @@ const $ = document.querySelector.bind(document);
 
 const heading = $("header h2");
 const thumb = $(".cd-thumb");
-const audio = $("#audio");
+const audio = $("audio");
 const cd = $(".cd");
 const playButton = $(".btn-toggle-play");
+const playButtonFt = $(".btn-toggle-play-ft");
 const player = $(".player");
 const progress = $("#progress");
 const nextBtn = $(".btn-next");
 const prevBtn = $(".btn-prev");
 const randomBtn = $(".btn-random");
 const repeatBtn = $(".btn-repeat");
+const nextBtnFt = $(".btn-next-ft");
+const prevBtnFt = $(".btn-prev-ft");
+const randomBtnFt = $(".btn-random-ft");
+const repeatBtnFt = $(".btn-repeat-ft");
 const timeProgress = $(".time-progress");
 const playList = $(".playlist");
 const likeBtn = $(".btn-like");
@@ -24,6 +29,10 @@ const control = $(".control");
 const h2 = $("h2");
 const userName = $(".username");
 var storageKey = "app.currentIndex";
+
+
+
+
 
 const app = {
   isPlaying: false,
@@ -142,7 +151,7 @@ const app = {
       <div class="thumb" style="background-image: url('${song.image}')">
       </div>
       <div class="body">
-      <a style="text-decoration: none" href=""> <h3 class="title">${song.name}</h3> </a>
+      <h3 class="title">${song.name}</h3> 
         <p class="author">${song.singer}</p> 
       </div>
       <a href="${song.path}" download="" onclick="return confirmDownload()">
@@ -212,6 +221,13 @@ const app = {
         audio.play();
       }
     };
+    playButtonFt.onclick = function () {
+      if (_this.isPlaying) {
+        audio.pause();
+      } else {
+        audio.play();
+      }
+    };
     // Event click Pause button
     audio.onplay = function () {
       _this.isPlaying = true;
@@ -242,10 +258,19 @@ const app = {
       randomBtn.classList.toggle("active", _this.isRandom);
     };
 
+    randomBtnFt.onclick = function () {
+      _this.isRandom = !_this.isRandom;
+      randomBtnFt.classList.toggle("active", _this.isRandom);
+    };
+
     //Event when click Repeat button
     repeatBtn.onclick = function () {
       _this.isRepeat = !_this.isRepeat;
       repeatBtn.classList.toggle("active", _this.isRepeat);
+    };
+    repeatBtnFt.onclick = function () {
+      _this.isRepeat = !_this.isRepeat;
+      repeatBtnFt.classList.toggle("active", _this.isRepeat);
     };
     // Event when the song ended
     audio.onended = function () {
@@ -310,9 +335,27 @@ const app = {
       audio.play();
       _this.render();
     };
+    nextBtnFt.onclick = function () {
+      if (_this.isRandom) {
+        _this.randomSong();
+      } else {
+        _this.nextSong();
+      }
+      audio.play();
+      _this.render();
+    };
 
     //Event click Prev Button
     prevBtn.onclick = function () {
+      if (_this.isRandom) {
+        _this.randomSong();
+      } else {
+        _this.prevSong();
+      }
+      audio.play();
+      _this.render();
+    };
+    prevBtnFt.onclick = function () {
       if (_this.isRandom) {
         _this.randomSong();
       } else {
@@ -457,7 +500,7 @@ function advertisementHandler() {
     setTimeout(() => {
       document.getElementById("closeAds").hidden = false
     }, 5000);
-  }, 100000);
+  }, 150000);
 }
   advertisementHandler();
 
@@ -475,16 +518,6 @@ function closeAds() {
 }
 
 const displayUserName = localStorage.getItem("username");
-userName.innerHTML = `Xin chào ${displayUserName}`;
+$('#username').innerHTML = `Wekcome ${displayUserName}`;
 
-// popular song UI
-// var listSongs = []
-// for(let i = 0; i < app.songs.length ; i++){
-//     const listSongsPush = app.songs[i].name
-//     console.log('listSongs:', listSongs);
-//     listSongs.push(listSongsPush)
-    
-// }
- 
-// $('#popular-song').innerHTML = listSongs.join('..')
 
